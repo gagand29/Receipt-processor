@@ -1,6 +1,15 @@
+//Name - GAGAN DODDANNA
+//EMAIL - gagandoddanna@gmail.com
+
 const { storeReceipt, getReceiptPoints } = require('../services/receiptService');
 
-// Use camelCase for function names
+/**
+ * @function processReceipt
+ * @description Handles the receipt processing and returns a generated ID.
+ * @param {Object} req - The request object from the client, containing the receipt data in `req.body`.
+ * @param {Object} res - The response object used to send back the status and JSON data.
+ * @returns {void} Responds with a JSON object containing the generated receipt ID or an error message.
+ */
 exports.processReceipt = (req, res) => {
   const receipt = req.body;
 
@@ -12,6 +21,13 @@ exports.processReceipt = (req, res) => {
   }
 };
 
+/**
+ * @function getPoints
+ * @description Retrieves the points for a given receipt ID.
+ * @param {Object} req - The request object from the client, containing the receipt ID in `req.params`.
+ * @param {Object} res - The response object used to send back the status and JSON data.
+ * @returns {void} Responds with a JSON object containing the points or an error message if the receipt ID is not found.
+ */
 exports.getPoints = (req, res) => {
   const { id } = req.params;
   const points = getReceiptPoints(id);
