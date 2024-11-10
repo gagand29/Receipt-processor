@@ -1,7 +1,7 @@
 //Name - GAGAN DODDANNA
 //EMAIL - gagandoddanna@gmail.com
 
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 /**
  * Generates a unique identifier using UUID.
@@ -44,7 +44,12 @@ function isValidTotal(total) {
  * @returns {boolean} - Returns true if all items are valid, false otherwise.
  */
 function isValidItems(items) {
-  return Array.isArray(items) && items.every(item => item.shortDescription && !isNaN(parseFloat(item.price)));
+  return (
+    Array.isArray(items) &&
+    items.every(
+      (item) => item.shortDescription && !isNaN(parseFloat(item.price))
+    )
+  );
 }
 
 /**
@@ -63,7 +68,15 @@ function isOddDay(day) {
  * @returns {boolean} - Returns true if the time is between 2:00 PM and 4:00 PM, false otherwise.
  */
 function isBetween2And4PM(hour, minute) {
-  return (hour === 14 || hour === 15) || (hour === 16 && minute === 0);
+  return (hour === 14 && minute > 0) || hour === 15;
 }
 
-module.exports = { generateUniqueId, isValidDate, isValidTime, isValidTotal, isValidItems, isOddDay, isBetween2And4PM };
+module.exports = {
+  generateUniqueId,
+  isValidDate,
+  isValidTime,
+  isValidTotal,
+  isValidItems,
+  isOddDay,
+  isBetween2And4PM,
+};
