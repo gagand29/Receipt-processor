@@ -63,7 +63,7 @@ function isOddDay(day) {
  * @returns {boolean} - Returns true if the time is between 2:00 PM and 4:00 PM, false otherwise.
  */
 function isBetween2And4PM(hour, minute) {
-  return hour === 14 || (hour === 15 && minute === 0);
+  return (hour === 14 || hour === 15) || (hour === 16 && minute === 0);
 }
 
 module.exports = { generateUniqueId, isValidDate, isValidTime, isValidTotal, isValidItems, isOddDay, isBetween2And4PM };
