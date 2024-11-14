@@ -26,7 +26,14 @@ function isValidDate(date) {
  * @returns {boolean} - Returns true if the time format is valid, false otherwise.
  */
 function isValidTime(time) {
-  return /^\d{2}:\d{2}$/.test(time);
+  const match = time.match(/^(\d{2}):(\d{2})$/);
+  
+  if (!match) return false;
+
+  const hour = parseInt(match[1], 10);
+  const minute = parseInt(match[2], 10);
+  
+  return hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59;
 }
 
 /**
